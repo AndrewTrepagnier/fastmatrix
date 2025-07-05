@@ -12,11 +12,9 @@ This is the concept of evolution that is continuously elucidating itself into te
 
 
 
-`"At a time when computational resources seem abundant, 
+`"At a time when computational resources seem abundant, there is much excitement around scaling up machine learning and training increasingly larger models on bigger datasets. Intelligent life, however, has arisen not from an abundance of resources, but rather from the lack of it."`
 
-there is much excitement around scaling up machine learning and training increasingly larger models on bigger datasets. Intelligent life, however, has arisen not from an abundance of resources, but rather from the lack of it."
 
-`
 
 ## 
 
