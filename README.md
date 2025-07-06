@@ -18,7 +18,7 @@ This is the concept of evolution that is continuously elucidating itself into te
 
 ## 
 
-This project was inspired by this philosophy — that optimization should be a consideration in every step of the process. I explore the basics of Cython, a superset of Python that compiles down to C code, enabling Python programs to run at near-C speeds by introducing static typing and eliminating runtime overhead.
+This project was inspired by this philosophy — that optimization should be a consideration in every step of the process because at ground level that is what an "intelligent" system is. I explore the basics of Cython, a superset of Python that compiles down to C code, enabling Python programs to run at near-C speeds by introducing static typing and eliminating runtime overhead.
 
 
 
