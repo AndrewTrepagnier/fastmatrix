@@ -20,7 +20,7 @@ This is the concept of evolution that is continuously elucidating itself into te
 
 This project was inspired by this philosophy — that optimization should be a consideration in every step of the process because at ground level that is what an "intelligent" system is.
 
-I explore speed and efficiency in this project, something I used to never worry about when first learning to code. I start with the basics building out matrix operations suites in Cython, and will explore other avenues in the future. 
+I explore speed and efficiency in this project, something I used to never worry about when first learning to code. I start with the basics building out matrix operations suites in Cython, and will explore other avenues(PYPY, Pyjion, Mojo, RustPython, ect.) in the future. 
 
 
 By benchmarking a simple matrix operation (element-wise squaring over many iterations) in both pure Python and Cython, this project demonstrates:
