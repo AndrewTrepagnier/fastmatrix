@@ -45,21 +45,21 @@ class MatrixOp:
         print(f"\n=== Matrix Multiplication Benchmark ({iterations} iterations) ===")
         print(f"Matrix sizes: {self.matrix1.shape} x {self.matrix2.shape}")
         
-        # Time custom implementation
-        start_time = time.time()
+        
+        start_time = time.time() 
         for _ in range(iterations):
             custom_result = self.matrix_multiplier()
-        custom_time = time.time() - start_time
+        custom_time = time.time() - start_time # Time custom implementation
         
-        # Time numpy implementation
+        
         start_time = time.time()
         for _ in range(iterations):
             numpy_result = np.dot(self.matrix1, self.matrix2)
-        numpy_time = time.time() - start_time
+        numpy_time = time.time() - start_time # Time numpy implementation
         
-        # Verify results are the same
+        
         if custom_result is not None:
-            is_correct = np.allclose(custom_result, numpy_result, rtol=1e-10)
+            is_correct = np.allclose(custom_result, numpy_result, rtol=1e-10) # Verify results are the same
             print(f"\nResults match: {is_correct}")
         
         # Print performance comparison

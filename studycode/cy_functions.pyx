@@ -35,8 +35,13 @@ def cy_matrix_multiplier(np.ndarray[np.float64_t, ndim=2] matrix1,
     for i in range(rows1):
         for j in range(cols2):
             dot_prod = 0.0
-            for k in range(cols1):  # or rows2, they're equal
-                dot_prod += matrix1[i, k] * matrix2[k, j]
+            
+            row = matrix1[i, :]
+            col = matrix2[:, j]
+
+           
+            for k in range(len(row)):
+                dot_prod += row[k] * col[k]
             result_matrix[i, j] = dot_prod
     
     return result_matrix 
