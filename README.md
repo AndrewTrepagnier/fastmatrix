@@ -1,6 +1,6 @@
 ## Fastmatrix
 
-Exploring speed and optimization in matrix calculations with Cython!
+Exploring speed and optimization in matrix calculations with different optimized python forks!
 
 
 
