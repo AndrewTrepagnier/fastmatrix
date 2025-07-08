@@ -1,4 +1,5 @@
 import numpy as np
+import cy_function_utils
 import time
 
 
@@ -10,8 +11,10 @@ class MatrixOp:
     def make_random_matrices(self):
         self.matrix1 = np.random.rand(self.num_rows, self.num_cols)
         self.matrix2 = np.random.rand(self.num_cols, self.num_rows)
-        print(f"Matrix1 is {self.matrix1}")
-        print(f"Matrix2 is {self.matrix2}")
+        print(f"Matrix1: {self.matrix1}")
+        print(f"Matrix2: {self.matrix2}")
+        return self.matrix1, self.matrix2
+        
 
     def matrix_multiplier(self):
         dot_prod=0
@@ -37,42 +40,63 @@ class MatrixOp:
         else:
             print("Matrix multiplication is not possible")
             return None
+        
 
-    def benchmark_multiplication(self, iterations=100):
-        """
-        Benchmark custom multiplication vs numpy multiplication
-        """
-        print(f"\n=== Matrix Multiplication Benchmark ({iterations} iterations) ===")
-        print(f"Matrix sizes: {self.matrix1.shape} x {self.matrix2.shape}")
-        
-        
-        start_time = time.time() 
-        for _ in range(iterations):
-            custom_result = self.matrix_multiplier()
-        custom_time = time.time() - start_time # Time custom implementation
-        
-        
-        start_time = time.time()
-        for _ in range(iterations):
-            numpy_result = np.dot(self.matrix1, self.matrix2)
-        numpy_time = time.time() - start_time # Time numpy implementation
-        
-        
-        if custom_result is not None:
-            is_correct = np.allclose(custom_result, numpy_result, rtol=1e-10) # Verify results are the same
-            print(f"\nResults match: {is_correct}")
-        
-        # Print performance comparison
-        print(f"\nCustom implementation: {custom_time:.4f} seconds")
-        print(f"Numpy implementation:  {numpy_time:.4f} seconds")
-        print(f"Speedup: {custom_time/numpy_time:.2f}x slower than numpy")
-        
-        return custom_time, numpy_time
 
-newinstance = MatrixOp(300, 300)
-newinstance.make_random_matrices()
-# Run the benchmark
-newinstance.benchmark_multiplication(iterations=10)  # Start with fewer iterations for testing
+print(f"Matrix Multiplication Benchmark of Python 3.12 and Cython")
+print("======================================")
+
+newinstance = MatrixOp(200, 200)
+print("+++++++++++++++++++++++++")
+matrix1, matrix2 = newinstance.make_random_matrices()
+start = time.time()
+newinstance.matrix_multiplier()
+print(f"Python 3.12 : {time.time() - start}")
+
+
+start = time.time()
+cy_function_utils.cymultipler(matrix1, matrix2)
+print(f"Cython: {time.time() - start}")
+
+
+
+
+
+    # def benchmark_multiplication(self, iterations=100):
+    #     """
+    #     Benchmark custom multiplication vs numpy multiplication
+    #     """
+    #     print(f"\n=== Matrix Multiplication Benchmark ({iterations} iterations) ===")
+    #     print(f"Matrix sizes: {self.matrix1.shape} x {self.matrix2.shape}")
+        
+        
+    #     start_time = time.time() 
+    #     for _ in range(iterations):
+    #         custom_result = self.matrix_multiplier()
+    #     custom_time = time.time() - start_time # Time custom implementation
+        
+        
+    #     start_time = time.time()
+    #     for _ in range(iterations):
+    #         numpy_result = np.dot(self.matrix1, self.matrix2)
+    #     numpy_time = time.time() - start_time # Time numpy implementation
+        
+        
+    #     if custom_result is not None:
+    #         is_correct = np.allclose(custom_result, numpy_result, rtol=1e-10) # Verify results are the same
+    #         print(f"\nResults match: {is_correct}")
+        
+    #     # Print performance comparison
+    #     print(f"\nCustom implementation: {custom_time:.4f} seconds")
+    #     print(f"Numpy implementation:  {numpy_time:.4f} seconds")
+    #     print(f"Speedup: {custom_time/numpy_time:.2f}x slower than numpy")
+        
+    #     return custom_time, numpy_time
+
+# newinstance = MatrixOp(3000, 3000)
+# newinstance.make_random_matrices()
+# # Run the benchmark
+# newinstance.benchmark_performance()  # Start with fewer iterations for testing
 
 
 

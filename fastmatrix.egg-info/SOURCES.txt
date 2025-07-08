@@ -1,7 +1,0 @@
-pyproject.toml
-setup.py
-fastmatrix/cy_matrix_utils.c
-fastmatrix.egg-info/PKG-INFO
-fastmatrix.egg-info/SOURCES.txt
-fastmatrix.egg-info/dependency_links.txt
-fastmatrix.egg-info/top_level.txt
